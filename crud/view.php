@@ -3,7 +3,7 @@ include "config.php";
 
 //write the query to get data from users table
 
-$sql = "SELECT * FROM users";
+$sql = "SELECT * FROM products";
 
 //execute the query
 
@@ -29,10 +29,8 @@ $result = $conn->query($sql);
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Gender</th>
+                    <th>Name</th>
+                    <th>Price</th>
                     <th>Action</th>
 
                 </tr>
@@ -45,11 +43,8 @@ $result = $conn->query($sql);
                           ?>
                             <tr>
                     <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['firstname']; ?></td>
-                    <td><?php echo $row['lastname']; ?></td>
-                    <td><?php echo $row['email']; ?></td>
-                    <td><?php echo $row['password']; ?></td>
-                    <td><?php echo $row['gender']; ?></td>
+                    <td><?php echo $row['name']; ?></td>
+                    <td><?php echo $row['price']; ?></td>
                    	<td><a class="btn btn-info" href="update.php?id=<?php echo $row['id']; ?>">Edit</a>&nbsp;<a class="btn btn-danger" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
 
 
