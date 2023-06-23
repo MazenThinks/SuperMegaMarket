@@ -3,14 +3,12 @@
 
 if (isset($_POST['submit'])) {
 
-  $first_name = $_POST['firstname'];
-  $last_name = $_POST['lastname'];
-  $email = $_POST['email'];
-  $password = $_POST['password'];
-  $gender = $_POST['gender'];
+  $name = $_POST['name'];
+  $price = $_POST['price'];
+
 
   //write sql query
-  $sql = "INSERT INTO `users`(`firstname`, `lastname`, `email`, `password`, `gender`) VALUES ('$first_name','$last_name','$email','$password','$gender')";
+  $sql = "INSERT INTO `products`(`name`, `price`) VALUES ('$name','$price')";
 //execute the query 
 $result = $conn->query($sql);
 if ($result == TRUE) {
@@ -31,29 +29,19 @@ $conn->close();
 <html lang="en">
 <head>
   
-    <title>signup</title>
-    <h1>Signup Form</h1>
+    <title>Products</title>
+    <h1>Create products</h1>
 </head>
 <body>
     <form action="" method="POST">
         <fieldset>
             <legend>Personal information</legend>
-            First name:<br>
-            <input type="text" name="firstname">
+            name:<br>
+            <input type="text" name="name">
             <br>
-             Last name:<br>
-            <input type="text" name="lastname">
+            price:<br>
+            <input type="number" name="price">
             <br> 
-            Email:<br>
-            <input type="email" name="email">
-            <br>
-             Password:<br>
-            <input type="password" name="password">
-            <br>
-             Gender:<br>
-             <input type="radio" name="gender" value="Male">Male
-             <input type="radio" name="gender" value="Female">Female
-             <br><br>
 
          <input type="submit" name="submit" value="submit">
            
