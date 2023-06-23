@@ -24,33 +24,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `products`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `products` (
   `id` int(11) NOT NULL,
-  `firstname` text DEFAULT NULL,
-  `lastname` text DEFAULT NULL,
-  `email` text DEFAULT NULL,
-  `password` text DEFAULT NULL,
-  `gender` text DEFAULT NULL
+  `name` text DEFAULT NULL,
+  `price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `products`
 --
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `gender`) VALUES
-(4, 'Abelo', 'negasafj', 'admin@gmail.com', '123123', 'Male');
+INSERT INTO `products` (`id`, `name`, `price`) VALUES
+(1, 'apple', '3');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `users`
+-- Indexes for table `products`
 --
-ALTER TABLE `users`
+ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -58,9 +55,9 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT for table `products`
 --
-ALTER TABLE `users`
+ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
