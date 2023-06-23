@@ -23,7 +23,7 @@ $result = $conn->query($sql);
 </head>
 <body>
     <div class="container">
-        <h1>users</h1>
+        <h1>Products</h1>
       
 <table class="table">
             <thead>

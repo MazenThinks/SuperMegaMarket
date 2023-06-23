@@ -4,15 +4,12 @@ include "config.php";
 
     // if the form's update button is clicked, we need to procss the form
     	if (isset($_POST['update'])) {
-		$firstname = $_POST['firstname'];
-		$user_id = $_POST['user_id'];
-		$lastname = $_POST['lastname'];
-		$email = $_POST['email'];
-		$password = $_POST['password'];
-		$gender = $_POST['gender'];
+		$name = $_POST['name'];
+		$product_id = $_POST['product_id'];
+		$price = $_POST['price'];
 
 		// write the update query
-		$sql = "UPDATE `users` SET `firstname`='$firstname',`lastname`='$lastname',`email`='$email',`password`='$password',`gender`='$gender' WHERE `id`='$user_id'";
+		$sql = "UPDATE `products` SET `name`='$name',`price`='$price' WHERE `id`='$product_id'";
 
 		// execute the query
 		$result = $conn->query($sql);
@@ -27,10 +24,10 @@ include "config.php";
 
     // if the 'id' variable is set in the URL, we know that we need to edit a record
 if (isset($_GET['id'])) {
-	$user_id = $_GET['id'];
+	$product_id = $_GET['id'];
 
 	// write SQL to get user data
-	$sql = "SELECT * FROM `users` WHERE `id`='$user_id'";
+	$sql = "SELECT * FROM `products` WHERE `id`='$product_id'";
 
 	//Execute the sql
 	$result = $conn->query($sql);
@@ -38,11 +35,8 @@ if (isset($_GET['id'])) {
 	if ($result->num_rows > 0) {
 		
 		while ($row = $result->fetch_assoc()) {
-			$first_name = $row['firstname'];
-			$lastname = $row['lastname'];
-			$email = $row['email'];
-			$password  = $row['password'];
-			$gender = $row['gender'];
+			$name = $row['name'];
+			$price = $row['price'];
 			$id = $row['id'];
 		}
 
@@ -51,22 +45,12 @@ if (isset($_GET['id'])) {
 		<form action="" method="post">
 		  <fieldset>
 		    <legend>Personal information:</legend>
-		    First name:<br>
-		    <input type="text" name="firstname" value="<?php echo $first_name; ?>">
-		    <input type="hidden" name="user_id" value="<?php echo $id; ?>">
+		    name:<br>
+		    <input type="text" name="name" value="<?php echo $name; ?>">
+		    <input type="hidden" name="product_id" value="<?php echo $id; ?>">
 		    <br>
-		    Last name:<br>
-		    <input type="text" name="lastname" value="<?php echo $lastname; ?>">
-		    <br>
-		    Email:<br>
-		    <input type="email" name="email" value="<?php echo $email; ?>">
-		    <br>
-		    Password:<br>
-		    <input type="password" name="password" value="<?php echo $password; ?>">
-		    <br>
-		    Gender:<br>
-		    <input type="radio" name="gender" value="Male" <?php if($gender == 'Male'){ echo "checked";} ?> >Male
-		    <input type="radio" name="gender" value="Female" <?php if($gender == 'Female'){ echo "checked";} ?>>Female
+		    price:<br>
+		    <input type="text" name="price" value="<?php echo $price; ?>">
 		    <br><br>
 		    <input type="submit" value="Update" name="update">
 		  </fieldset>
