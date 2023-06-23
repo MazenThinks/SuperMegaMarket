@@ -63,7 +63,7 @@ $result = $conn->query($sql);
                 
             </tbody>
         </table>
-        <a class="btn btn-info" href="create.php?id=<?php echo $row['id']; ?>">Add</a>
+        <a class="btn btn-info" href="create.php">Add</a>
     </div>
     
 </body>
