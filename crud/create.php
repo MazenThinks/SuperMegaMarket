@@ -35,14 +35,14 @@ $conn->close();
 <body>
     <form action="" method="POST">
         <fieldset>
-            <legend>Personal information</legend>
+            <legend>Products information</legend>
             name:<br>
             <input type="text" name="name">
             <br>
             price:<br>
             <input type="number" name="price">
             <br> 
-
+            <br>
          <input type="submit" name="submit" value="submit">
            
         </fieldset>
